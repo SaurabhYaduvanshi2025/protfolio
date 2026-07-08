@@ -694,7 +694,7 @@ export default function Portfolio() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/saurabh-yadav-merndev"
+              href="https://www.linkedin.com/in/saurabh-yadav-mern-dev/"
               target="_blank"
               rel="noreferrer"
               className={`mono text-xs underline hover:${t.accent}`}
