@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import {
   Link2,
   Mail,
@@ -151,6 +151,9 @@ const TERMINAL_LINES = [
   "open to full-time opportunities ✓",
 ];
 
+const RESUME_FILE = "/Saurabh_Yadav_Resume.pdf";
+const RESUME_DOWNLOAD_NAME = "Saurabh_Yadav_Resume.pdf";
+
 const THEME = {
   dark: {
     page: "bg-[#0A0E14] text-[#E4E7EB]",
@@ -242,6 +245,16 @@ export default function Portfolio() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const downloadResume = useCallback(() => {
+    const link = document.createElement("a");
+    link.href = RESUME_FILE;
+    link.download = RESUME_DOWNLOAD_NAME;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setPaletteOpen(false);
+  }, []);
+
   const copyEmail = () => {
     navigator.clipboard?.writeText("saurabhyaduvanshi2018@gmail.com");
     setCopied(true);
@@ -264,10 +277,7 @@ export default function Portfolio() {
       },
       {
         label: "download resume (pdf)",
-        run: () => {
-          document.getElementById("resume-download-link")?.click();
-          setPaletteOpen(false);
-        },
+        run: downloadResume,
       },
       { label: "copy email address", run: copyEmail },
       {
@@ -279,7 +289,7 @@ export default function Portfolio() {
         run: () => window.open("https://www.linkedin.com/in/saurabh-yadav-mern-dev/", "_blank"),
       },
     ],
-    [dark]
+    [dark, downloadResume]
   );
 
   const filtered = actions.filter((a) =>
@@ -348,16 +358,6 @@ export default function Portfolio() {
         .mono { font-family: 'JetBrains Mono', monospace; }
         html { scroll-behavior: smooth; }
       `}</style>
-
-      {/* hidden real download link - swap href for your actual hosted resume.pdf */}
-      <a
-        id="resume-download-link"
-        href="/resume.pdf"
-        download="Saurabh_Yadav_Resume.pdf"
-        className="hidden"
-      >
-        download
-      </a>
 
       {/* SCROLL PROGRESS */}
       <div
@@ -487,12 +487,13 @@ export default function Portfolio() {
             ))}
           </div>
           <div className="flex flex-wrap gap-3 mb-6">
-            <button
-              onClick={() => document.getElementById("resume-download-link")?.click()}
+            <a
+              href={RESUME_FILE}
+              download={RESUME_DOWNLOAD_NAME}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium ${t.btnPrimary}`}
             >
               <Download size={15} /> download resume
-            </button>
+            </a>
             <button
               onClick={() => scrollTo("projects")}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium ${t.btnGhost}`}
