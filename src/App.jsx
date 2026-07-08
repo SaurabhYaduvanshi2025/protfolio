@@ -276,7 +276,7 @@ export default function Portfolio() {
       },
       {
         label: "open linkedin profile",
-        run: () => window.open("https://linkedin.com/in/saurabh-yadav-merndev", "_blank"),
+        run: () => window.open("https://www.linkedin.com/in/saurabh-yadav-mern-dev/", "_blank"),
       },
     ],
     [dark]
@@ -516,7 +516,7 @@ export default function Portfolio() {
               <Link2 size={14} /> GitHub
             </a>
             <a
-              href="https://linkedin.com/in/saurabh-yadav-merndev"
+              href="https://www.linkedin.com/in/saurabh-yadav-mern-dev/"
               target="_blank"
               rel="noreferrer"
               className={`flex items-center gap-1.5 hover:${t.accent}`}
