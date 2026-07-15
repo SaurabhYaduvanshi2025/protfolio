@@ -79,17 +79,17 @@ const EXPERIENCE = [
       "Improved data accuracy by 20% through systematic validation processes.",
     ],
   },
-  {
-    role: "Data Entry & MIS Executive",
-    company: "Jarvis Consultant",
-    location: "New Delhi, India",
-    period: "Mar 2022 — Mar 2023",
-    points: [
-      "Entered and validated large volumes of business data, maintaining accuracy across records.",
-      "Prepared MIS reports delivering actionable insights to management.",
-      "Coordinated across departments to streamline reporting workflows.",
-    ],
-  },
+  // {
+  //   role: "Data Entry & MIS Executive",
+  //   company: "Jarvis Consultant",
+  //   location: "New Delhi, India",
+  //   period: "Mar 2022 — Mar 2023",
+  //   points: [
+  //     "Entered and validated large volumes of business data, maintaining accuracy across records.",
+  //     "Prepared MIS reports delivering actionable insights to management.",
+  //     "Coordinated across departments to streamline reporting workflows.",
+  //   ],
+  // },
 ];
 
 const PROJECTS = [
